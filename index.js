@@ -30,6 +30,7 @@ io.use(wildcard);
 
 
 io.on("connection",(socket)=>{
+    let lastEventTime = 0;
     const THROTTLE_INTERVAL = 1000;
 
     console.log("User connected :"+socket.id)
