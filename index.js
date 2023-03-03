@@ -12,6 +12,9 @@ let server = http.createServer(app)
 app.get('/', (req, res) => {
     res.send("done");
   });
+  app.get("/favicon",(req,res)=>{
+   return 
+  })
   
 
 
@@ -33,6 +36,6 @@ io.on("connection",(socket)=>{
 
 })
 
-server.listen(process.env.port,()=>{
+server.listen(process.env.port||4000,()=>{
     console.log("Server is running")
 })
