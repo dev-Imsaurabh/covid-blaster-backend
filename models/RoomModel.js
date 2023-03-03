@@ -9,7 +9,8 @@ let roomSchema = mongoose.Schema({
     p2:String,
     p3:String,
     p4:String,
-    rid:{type:Number,required:true}
+    rid:{type:Number,required:true},
+    created:{type:Number,required:true}
 
 
 },{
