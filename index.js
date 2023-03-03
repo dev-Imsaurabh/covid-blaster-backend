@@ -39,10 +39,10 @@ io.on("connection",(socket)=>{
     if (now - lastEventTime > THROTTLE_INTERVAL) {
       // process the event normally
       lastEventTime = now;
+      socket.broadcast.emit("receive_message",data)
     } else {
       // throttle the event
       console.log(`Throttling event: ${packet.data}`);
-      socket.broadcast.emit("receive_message",data)
     }
 
 
