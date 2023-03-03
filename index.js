@@ -3,11 +3,16 @@ const app = express()
 const {Server} = require("socket.io")
 const cors = require("cors")
 const wildcard =require('socketio-wildcard')();
+const { roomRouter } = require("./routes/room.routes");
 
 app.use(cors())
+app.use(express.json())
+app.use("/room",roomRouter)
 require("dotenv").config()
 
-const http = require("http")
+const http = require("http");
+const { connection } = require("./db");
+const exp = require("constants");
 let server = http.createServer(app)
 
 
@@ -49,9 +54,18 @@ io.on("connection",(socket)=>{
 
 
     })
+    
 
 })
 
-server.listen(process.env.port||4000,()=>{
+server.listen(process.env.port||4000,async()=>{
+    try {
+        await connection
+        console.log("DB Connected successfully")
+    } catch (error) {
+
+        console.log("Somthing wen wrong :",error)
+        
+    }
     console.log("Server is running")
 })
