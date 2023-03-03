@@ -44,7 +44,7 @@ io.on("connection",(socket)=>{
     } else {
       // throttle the event
       
-      console.log(`Throttling event: ${packet.data}`);
+    //   console.log(`Throttling event: ${packet.data}`);
     }
 
 
