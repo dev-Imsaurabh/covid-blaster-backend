@@ -43,6 +43,7 @@ io.on("connection",(socket)=>{
       socket.broadcast.emit("receive_message",data)
     } else {
       // throttle the event
+      
       console.log(`Throttling event: ${packet.data}`);
     }
 
