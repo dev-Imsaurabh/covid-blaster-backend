@@ -8,6 +8,13 @@ require("dotenv").config()
 const http = require("http")
 let server = http.createServer(app)
 
+
+app.get('/', (req, res) => {
+    res.send("done");
+  });
+  
+
+
 const io = new Server(server,{
     cors:{
         origin:"https://my-app-rose-six.vercel.app",
