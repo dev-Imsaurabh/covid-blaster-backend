@@ -58,12 +58,13 @@ io.on("connection",(socket)=>{
     })
 
     socket.on("score",(data)=>{
-
+        console.log("score_data",data)
         socket.broadcast.emit(data.rid,data)
 
     })
 
     socket.on("start",(data)=>{
+        console.log("score_data",data)
 
         socket.broadcast.emit(data.rid,data)
 
