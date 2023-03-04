@@ -56,6 +56,18 @@ io.on("connection",(socket)=>{
 
 
     })
+
+    socket.on("score",(data)=>{
+
+        socket.broadcast.emit(data.rid,data)
+
+    })
+
+    socket.on("start",(data)=>{
+
+        socket.broadcast.emit(data.rid,data)
+
+    })
     
 
 })
