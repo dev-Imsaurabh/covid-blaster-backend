@@ -58,17 +58,47 @@ io.on("connection",(socket)=>{
     })
 
     socket.on("score",(data)=>{
-        console.log("score_data",data)
-        socket.broadcast.emit(data.rid,data)
+
+        const now = Date.now();
+
+        if (now - lastEventTime > THROTTLE_INTERVAL) {
+          // process the event normally
+          lastEventTime = now;
+          console.log("score_data",data)
+          data.start = false
+          socket.broadcast.emit(data.rid,data)
+        } else {
+          // throttle the event
+          
+        //   console.log(`Throttling event: ${packet.data}`);
+        }
+
+       
 
     })
 
     socket.on("start",(data)=>{
-        console.log("score_data",data)
 
+        const now = Date.now();
+
+        if (now - lastEventTime > THROTTLE_INTERVAL) {
+          // process the event normally
+          lastEventTime = now;
+          console.log("start_data",data)
+          data.start = true
         socket.broadcast.emit(data.rid,data)
+        } else {
+          // throttle the event
+          
+        //   console.log(`Throttling event: ${packet.data}`);
+        }
+
+       
 
     })
+      
+
+    
     
 
 })
