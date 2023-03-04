@@ -4,9 +4,11 @@ const {Server} = require("socket.io")
 const cors = require("cors")
 const wildcard =require('socketio-wildcard')();
 const { roomRouter } = require("./routes/room.routes");
+const { joinRouter } = require("./routes/join.routes");
 
 app.use(cors())
 app.use(express.json())
+app.use("/join",joinRouter)
 app.use("/room",roomRouter)
 require("dotenv").config()
 
