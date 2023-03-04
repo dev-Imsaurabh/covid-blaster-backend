@@ -66,6 +66,15 @@ io.on("connection",(socket)=>{
 
     })
 
+    socket.on("score1",(data)=>{
+
+        data.start = false
+        socket.broadcast.emit(data.rid,data)
+
+       
+
+    })
+
     socket.on("start",(data)=>{
 
         const now = Date.now();
