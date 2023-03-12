@@ -29,7 +29,7 @@ app.get('/', (req, res) => {
 
 const io = new Server(server,{
     cors:{
-        origin:"https://my-app-rose-six.vercel.app",
+        origin:"https://covidblaster.vercel.app",
         methods:["GET","POST"]
     }
 })
